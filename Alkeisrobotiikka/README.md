@@ -1,10 +1,10 @@
 # Alkeisrobotiikkavideoiden koodi
-##Eri projektit:
-###Lämpömittari:
+## Eri projektit:
+### Lämpömittari:
 Projekti toimii esimerkkinä Arduino-IDE:n käyttöön.
-###Automaattisesti avautuva laatikko:
+### Automaattisesti avautuva laatikko:
 Esittely servomoottoriin, idea on laatikko joka avautuu kun etäisyys-sensori huomaa että joku on lähellä
-###Tuuletin:
+### Tuuletin:
 Esittely DC Moottoriin, tuuletin joka kääntyy 120 astetta servon avulla.
 ## Ongelmia koodin kanssa?
 Jos löydät ongelman koodista, luo uusi ongelma tänne repositoryyn 
