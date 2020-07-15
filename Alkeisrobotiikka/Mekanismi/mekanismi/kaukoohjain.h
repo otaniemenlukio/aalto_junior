@@ -22,3 +22,11 @@
 
 // Sammutusnappi
 #define SAMMUTA 0xFD00FF
+
+
+uint32_t numeronapit[] = { // Lista numeronapeista.
+  NOLLA, 
+  YKSI, KAKSI, KOLME,
+  NELJA, VIISI, KUUSI,
+  SEITSEMAN, KAHDEKSAN, YHDEKSAN
+};

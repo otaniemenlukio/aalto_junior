@@ -49,7 +49,7 @@ void setup() {
 }
 void loop() {
   if (vastaanotin.decode(&results)) {
-    long long value = results.value; // Muuttuja joka kuvaa saatua koodia
+    uint32_t value = results.value; // Muuttuja joka kuvaa saatua koodia
     vastaanotin.resume(); // Jatka signaalien kuuntelua
 
     switch (value) {
@@ -63,41 +63,17 @@ void loop() {
         shouldUpdate = true; // Pitää päivittää, koska valojen päälläolotila on muuttunut
         s.write(120); // Käännä servoa
         break;
-      /*
-         Seuraavat caset tarkastavat onko jotain kaukosäätimen numeronapeista painettu,
-         jos on niin se muuttaa ledinauhan väriä
-      */
-      case NOLLA:
-        newColor = varit[0]; // Värilista on määritelty varit.h tiedostossa
-        break;
-      case YKSI:
-        newColor = varit[1];
-        break;
-      case KAKSI:
-        newColor = varit[2];
-        break;
-      case KOLME:
-        newColor = varit[3];
-        break;
-      case NELJA:
-        newColor = varit[4];
-        break;
-      case VIISI:
-        newColor = varit[5];
-        break;
-      case KUUSI:
-        newColor = varit[6];
-        break;
-      case SEITSEMAN:
-        newColor = varit[7];
-        break;
-      case KAHDEKSAN:
-        newColor = varit[8];
-        break;
-      case YHDEKSAN:
-        newColor = varit[9];
+      default:
+        // Jos ei ole kumpikaan voluuminapeista, tarkasta onko kyseessä numeronappi 
+        for(int i = 0; i < 10; i++) { 
+            if(value == numeronapit[i]) {
+              newColor = varit[i];
+              break;
+            }
+        }
         break;
     }
+
   }
 
   if (newColor != color) { // Jos väri on muuttunut
